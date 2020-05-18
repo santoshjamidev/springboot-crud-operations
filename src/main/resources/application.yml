@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: development
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+
+#logging:
+#  level:
+#    root: DEBUG
+#    org.springframework: DEBUG
+#    com.santosh.jpacurd: DEBUG
+#  pattern:
+#    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+#  file: app.log
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb?useSSL=false
+    username: root
+    password: root
+
+
+
