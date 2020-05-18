@@ -14,8 +14,10 @@ public class CurdOperationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CurdOperationController.class);
 
     @GetMapping(path = "/insert")
-    public void insertEntryIntoTable(@RequestParam("empName") String empName) {
+    public String insertEntryIntoTable(@RequestParam("empName") String empName) {
 
         LOGGER.info("CurdOperationController: Emp Name is "+empName);
+
+        return "Hello "+empName;
     }
 }
