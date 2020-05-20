@@ -18,9 +18,15 @@ spring:
 spring:
   profiles: development
   datasource:
-    url: jdbc:mysql://localhost:3306/testdb?useSSL=false
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: root
+    password: MysqlDatabase
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        use-new-id-generator-mappings: false
+      ddl-auto: update
 
 
 
