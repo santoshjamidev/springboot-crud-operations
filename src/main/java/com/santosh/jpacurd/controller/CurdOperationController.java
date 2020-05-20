@@ -3,6 +3,7 @@ package com.santosh.jpacurd.controller;
 import com.santosh.jpacurd.domain.EmployeeData;
 import com.santosh.jpacurd.manager.EmployeeManager;
 import com.santosh.jpacurd.model.Employee;
+import com.santosh.jpacurd.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/curd")
+@RequestMapping(path = Constants.BASE_PATH)
 public class CurdOperationController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CurdOperationController.class);
@@ -19,7 +20,7 @@ public class CurdOperationController {
     @Autowired
     private EmployeeManager employeeManager;
 
-    @GetMapping(path = "/findAll")
+    @GetMapping(path = Constants.FIND_ALL_EMPLOYEES)
     public List<Employee> getAllEmployees() {
 
         LOGGER.info("CurdOperationController: getAllEmployees ");
@@ -27,7 +28,7 @@ public class CurdOperationController {
         return employeeManager.getAllEmployees();
     }
 
-    @PostMapping(path = "/insert")
+    @PostMapping(path = Constants.INSERT_EMPLOYEE)
     public Employee insertEntryIntoTable(@RequestBody EmployeeData employee) {
 
         LOGGER.info("CurdOperationController: Emp Name is "+employee.getName());
@@ -35,7 +36,7 @@ public class CurdOperationController {
         return employeeManager.insertEmployeeRecord(employee);
     }
 
-    @GetMapping(path = "/update")
+    @GetMapping(path = Constants.UPDATE_EMPLOYEE)
     public Employee updateExistingRecord(@RequestParam("empId") String empId, @RequestParam("name") String name) {
 
         LOGGER.info("CurdOperationController: updateExistingRecord "+empId + " Name is "+name);
