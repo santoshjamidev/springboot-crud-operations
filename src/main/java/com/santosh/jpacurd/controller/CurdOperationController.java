@@ -7,6 +7,8 @@ import com.santosh.jpacurd.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,14 +20,27 @@ public class CurdOperationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CurdOperationController.class);
 
     @Autowired
+    @Qualifier(value = "Implementation1")
     private EmployeeManager employeeManager;
 
-    @GetMapping(path = Constants.FIND_ALL_EMPLOYEES)
+    @Autowired
+    @Qualifier(value = "Implementation2")
+    private EmployeeManager employeeManager2;
+
+    @GetMapping(path = Constants.FIND_ALL_EMPLOYEES, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Employee> getAllEmployees() {
 
         LOGGER.info("CurdOperationController: getAllEmployees ");
 
         return employeeManager.getAllEmployees();
+    }
+
+    @GetMapping(path = Constants.FIND_ALL_EMPLOYEES + "/2")
+    public List<Employee> getAllEmployees2() {
+
+        LOGGER.info("CurdOperationController: getAllEmployees ");
+
+        return employeeManager2.getAllEmployees();
     }
 
     @PostMapping(path = Constants.INSERT_EMPLOYEE)

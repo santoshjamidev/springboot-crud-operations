@@ -5,11 +5,13 @@ import com.santosh.jpacurd.model.Employee;
 import com.santosh.jpacurd.repository.EmployeeRepository;
 import com.santosh.jpacurd.transformer.EmployeeDataTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Qualifier(value = "Implementation1")
 public class EmployeeManagerImpl implements EmployeeManager {
 
     @Autowired

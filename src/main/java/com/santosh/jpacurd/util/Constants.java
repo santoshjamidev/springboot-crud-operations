@@ -2,7 +2,7 @@ package com.santosh.jpacurd.util;
 
 public class Constants {
 
-    public static final String BASE_PATH = "/curd";
+    public static final String BASE_PATH = "/crud";
 
     public static final String FIND_ALL_EMPLOYEES = "/findAll";
 

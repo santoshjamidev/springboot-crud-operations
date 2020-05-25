@@ -18,6 +18,19 @@ spring:
 logging:
   level:
     root: INFO
+---
+spring:
+  profiles: production
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: MysqlDatabase
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        use-new-id-generator-mappings: false
+      ddl-auto: update
 
 ---
 spring:
@@ -33,5 +46,17 @@ spring:
         use-new-id-generator-mappings: false
       ddl-auto: update
 
-
+---
+spring:
+  profiles: testing
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: MysqlDatabase
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        use-new-id-generator-mappings: false
+      ddl-auto: update
 
