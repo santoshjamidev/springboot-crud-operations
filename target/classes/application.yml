@@ -14,11 +14,16 @@ spring:
 #  pattern:
 #    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
 #  file: app.log
+
+logging:
+  level:
+    root: INFO
+
 ---
 spring:
   profiles: development
   datasource:
-    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: MysqlDatabase
   jpa:
